@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    tools:context=".UserPage"
+    android:orientation="vertical">
+
+
+
+        <FrameLayout
+            android:id="@+id/frameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="visible"
+            android:background="@color/whitish"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:layout_gravity="center"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:fontFamily="sans-serif-condensed-medium"/>
+
+
+            <TextView
+                android:id="@+id/UName"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:padding="@dimen/_10sdp"
+                android:text=""
+                android:visibility="gone"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/_13sdp"
+                android:textStyle="bold" />
+        </FrameLayout>
+
+
+
+<FrameLayout
+    android:id="@+id/FrameLayout4"
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    app:layout_constraintStart_toEndOf="parent"
+    app:layout_constraintEnd_toEndOf="@id/ToDo"
+    android:background="@color/white"
+    app:layout_constraintTop_toBottomOf="@id/frameLayout"
+>
+
+    <TextView
+        android:id="@+id/Chats"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Chats"
+        android:textColor="@color/black"
+        android:textSize="@dimen/_20ssp"
+        android:gravity="start"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:textStyle="bold"
+        />
+</FrameLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/widgetuser1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        android:background="@drawable/background_container2"
+        app:layout_constraintBottom_toTopOf="@id/mewoView"
+        app:layout_constraintTop_toBottomOf="@id/FrameLayout4"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycleusers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:padding="@dimen/_20sdp"
+            android:visibility="invisible"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            />
+
+
+
+        <ProgressBar
+            android:id="@+id/progressUsers"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/blue" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toEndOf="@id/Chats">
+
+        </View>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/widgetuser2"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="@drawable/background_container2"
+        app:layout_constraintBottom_toTopOf="@id/mewoView"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <!-- Account Settings Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Settings"
+                    android:textSize="@dimen/_20ssp"
+                    android:textStyle="bold"
+                    android:textColor="@color/black"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp"/>
+
+
+                <TextView
+                    android:id="@+id/profile"
+                    android:layout_width="wrap_content"
+                    android:drawableLeft="@drawable/baseline_user_image"
+                    android:layout_height="wrap_content"
+                    android:textSize="18sp"
+                    android:layout_marginStart="16dp"
+                    android:text="Profile"
+                    android:onClick="Profile"
+               />
+
+                <!-- Privacy and Security Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Privacy and Security"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/baseline_privacy_tip_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Add privacy and security settings elements here -->
+
+                <!-- Notifications Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Notifications"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/baseline_notifications_none_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Add notification settings elements here -->
+
+                <!-- Chat Settings Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chat Settings"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/baseline_mark_chat_read_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Add chat settings elements here -->
+
+                <!-- Account Management Section -->
+                <TextView
+                    android:id="@+id/AccountManagement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Account Management"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/baseline_manage_accounts_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Add account management settings elements here -->
+
+
+
+                <!-- General Settings Section -->
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="General Settings"
+                    android:textSize="18sp"
+                    android:drawableLeft="@drawable/settings_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <TextView
+                    android:id="@+id/Logout"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="LogOut"
+                    android:textSize="18sp"
+                    android:onClick="LogOut"
+                    android:drawableLeft="@drawable/baseline_logout_24"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Add general settings elements here -->
+
+            </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/widgetuser3"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        android:background="@drawable/background_container2"
+        app:layout_constraintBottom_toTopOf="@id/mewoView"
+        app:layout_constraintTop_toBottomOf="@id/frameLayout"
+        app:layout_constraintVertical_bias="0.0"
+        tools:layout_editor_absoluteX="0dp">
+
+        <TextView
+            android:padding="@dimen/_4sdp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Calls"
+            android:textColor="@color/black"
+            android:textSize="@dimen/_20ssp"
+            android:gravity="start"
+            android:layout_marginTop="@dimen/_5sdp"
+            android:textStyle="bold"/>
+
+        <ProgressBar
+            android:id="@+id/progressCalls"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="@dimen/_35sdp"
+            android:layout_gravity="center"
+            android:indeterminateTint="@color/blue" />
+
+        <View
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            app:layout_constraintStart_toEndOf="@id/Chats">
+
+        </View>
+
+    </androidx.cardview.widget.CardView>
+
+    <com.etebarian.meowbottomnavigation.MeowBottomNavigation
+        android:id="@+id/mewoView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/whitish"
+        app:mbn_backgroundBottomColor="@color/whitish"
+        app:mbn_countBackgroundColor="#ff6f00"
+        app:mbn_countTextColor="#ffffff"
+        app:mbn_defaultIconColor="#90a4ae"
+        app:mbn_rippleColor="#2f424242"
+        app:mbn_selectedIconColor="@color/teal_200"
+        app:mbn_shadowColor="#1f212121"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <ImageView
+        android:id="@+id/ToDo"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:src="@drawable/baseline_playlist_list"
+        android:background="?android:attr/selectableItemBackgroundBorderless"
+        android:layout_margin="@dimen/_18sdp"
+        android:layout_marginTop="@dimen/_50sdp"
+        app:layout_constraintTop_toTopOf="@id/frameLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:contentDescription="To-do Activity"
+        android:onClick="goToToDoActivity"
+    />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

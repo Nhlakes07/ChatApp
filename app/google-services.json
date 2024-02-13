@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "823820892253",
+    "project_id": "geekschat-eb1fb",
+    "storage_bucket": "geekschat-eb1fb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823820892253:android:1d1dae2bbfa1a4c138f5b4",
+        "android_client_info": {
+          "package_name": "com.example.myapplication"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "823820892253-fk3gniu8jpojhjru9rjqj50spcet1kdb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALG3uJcLR4s7vauOI3FiaGqQTTkd5sVQ8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "823820892253-fk3gniu8jpojhjru9rjqj50spcet1kdb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
