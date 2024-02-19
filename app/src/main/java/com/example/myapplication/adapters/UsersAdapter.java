@@ -21,9 +21,7 @@ import com.makeramen.roundedimageview.RoundedImageView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UsersAdapter extends BaseAdapter
-{
-
+public class UsersAdapter extends BaseAdapter {
 
     private final List<Users> usersList;
     private final Context context;
@@ -60,8 +58,7 @@ public class UsersAdapter extends BaseAdapter
         } else {
             // Iterate through usersList and add matching users to the filtered list
             for (Users user : usersList) {
-                if (user.Name.contains(query))
-                {
+                if (user.Name.contains(query)) {
                     filteredList.add(user);
                 }
             }
@@ -77,33 +74,31 @@ public class UsersAdapter extends BaseAdapter
         if (convertView == null) {
             convertView = LayoutInflater.from(context).inflate(R.layout.user_container_view, parent, false);
             holder = new ViewHolder();
-            Users user = filteredList.get(position);
-
-            convertView.setOnClickListener(v ->{
-                Intent intent = new Intent(context, ChatScreen.class);
-                intent.putExtra(Constants.KEY_USER,user);
-                context.startActivity(intent);
-            });
-            holder.nameTextView = convertView.findViewById(R.id.textName);
-            holder.emailTextView = convertView.findViewById(R.id.textEmail);
-            holder.ProfileImage = convertView.findViewById(R.id.imageView4);
-
-            holder.nameTextView.setText(user.Name);
-            holder.emailTextView.setText(user.Email);
-
-            if (user.image != null && !user.image.isEmpty()) {
-                holder.ProfileImage.setImageBitmap(getUserImage(user.image));
-            } else {
-                holder.ProfileImage.setImageResource(R.drawable.user); // Set default image resource
-            }
-
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
+        Users user = filteredList.get(position); // Use the filteredList for display
 
+        convertView.setOnClickListener(v -> {
+            Intent intent = new Intent(context, ChatScreen.class);
+            intent.putExtra(Constants.KEY_USER, user);
+            context.startActivity(intent);
+        });
 
+        holder.nameTextView = convertView.findViewById(R.id.textName);
+        holder.emailTextView = convertView.findViewById(R.id.textEmail);
+        holder.ProfileImage = convertView.findViewById(R.id.imageView4);
+
+        holder.nameTextView.setText(user.Name);
+        holder.emailTextView.setText(user.Email);
+
+        if (user.image != null && !user.image.isEmpty()) {
+            holder.ProfileImage.setImageBitmap(getUserImage(user.image));
+        } else {
+            holder.ProfileImage.setImageResource(R.drawable.user); // Set default image resource
+        }
 
         return convertView;
     }
@@ -119,10 +114,8 @@ public class UsersAdapter extends BaseAdapter
         RoundedImageView ProfileImage;
     }
 
-    private Bitmap getUserImage(String encodedImage)
-    {
-        byte[] bytes = Base64.decode(encodedImage,Base64.DEFAULT);
-        return BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+    private Bitmap getUserImage(String encodedImage) {
+        byte[] bytes = Base64.decode(encodedImage, Base64.DEFAULT);
+        return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
-
 }

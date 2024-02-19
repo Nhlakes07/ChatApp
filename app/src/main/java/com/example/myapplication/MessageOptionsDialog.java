@@ -21,7 +21,7 @@ public class MessageOptionsDialog extends DialogFragment
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setItems(new String[]{"Copy", "Delete", "Forward", "React"}, new DialogInterface.OnClickListener() {
+        builder.setItems(new String[]{"Copy", "Delete"}, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 if (listener != null) {
@@ -32,12 +32,7 @@ public class MessageOptionsDialog extends DialogFragment
                         case 1:
                             listener.onDeleteClicked();
                             break;
-                        case 2:
-                            listener.onForwardClicked();
-                            break;
-                        case 3:
-                            listener.onReactClicked();
-                            break;
+
                     }
                 }
             }
@@ -51,8 +46,5 @@ public class MessageOptionsDialog extends DialogFragment
 
         void onDeleteClicked();
 
-        void onForwardClicked();
-
-        void onReactClicked();
     }
 }

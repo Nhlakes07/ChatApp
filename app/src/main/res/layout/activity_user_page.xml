@@ -51,7 +51,6 @@
     android:layout_width="match_parent"
     android:layout_height="0dp"
     app:layout_constraintStart_toEndOf="parent"
-    app:layout_constraintEnd_toEndOf="@id/ToDo"
     android:background="@color/white"
     app:layout_constraintTop_toBottomOf="@id/frameLayout"
 >
@@ -248,32 +247,252 @@
         app:layout_constraintVertical_bias="0.0"
         tools:layout_editor_absoluteX="0dp">
 
-        <TextView
-            android:padding="@dimen/_4sdp"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="Calls"
-            android:textColor="@color/black"
-            android:textSize="@dimen/_20ssp"
-            android:gravity="start"
-            android:layout_marginTop="@dimen/_5sdp"
-            android:textStyle="bold"/>
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/editTextTask"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:hint="Enter task"
+                android:inputType="text" />
 
-        <ProgressBar
-            android:id="@+id/progressCalls"
-            android:layout_width="@dimen/_30sdp"
-            android:layout_height="@dimen/_35sdp"
-            android:layout_gravity="center"
-            android:indeterminateTint="@color/blue" />
+            <EditText
+                android:id="@+id/editTextDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextTask"
+                android:hint="Enter description"
+                android:layout_margin="16dp"
+                android:inputType="textMultiLine"
+                android:layout_marginTop="8dp"/>
 
-        <View
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            app:layout_constraintStart_toEndOf="@id/Chats">
+            <TextView
+                android:id="@+id/date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextDescription"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:clickable="false"
+                android:hint="Due Date"
+                android:inputType="none"
+                android:textSize="@dimen/_15sdp" />
 
-        </View>
+            <Button
+                android:id="@+id/editTextDueDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Pick Due Date and Time"
+                android:backgroundTint="@color/blue"
+                android:layout_below="@id/date"
+                android:layout_margin="16dp"/>
+
+            <Button
+                android:id="@+id/buttonSaveTask"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/editTextDueDate"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:backgroundTint="@color/blue"
+                android:text="Save Task"
+                android:onClick="Save"/>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/buttonSaveTask"
+                android:layout_margin="16dp">
+
+                <ListView
+                    android:id="@+id/listViewTasks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:divider="@android:color/darker_gray"
+                    android:dividerHeight="1dp" />
+
+            </androidx.cardview.widget.CardView>
+
+        </RelativeLayout>
 
     </androidx.cardview.widget.CardView>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/widgetuser6"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        android:background="@color/whitish"
+        android:layout_gravity="center"
+        tools:context=".UsersActivity"
+        android:orientation="vertical">
+
+        <FrameLayout
+            android:id="@+id/userframeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toTopOf="parent"
+            >
+
+            <ImageView
+                android:id="@+id/ProfilePhoto"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="start"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/back"
+                android:onClick="backtouserpage"></ImageView>
+
+            <ImageView
+                android:id="@+id/ImageView"
+                android:layout_width="@dimen/_25sdp"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_gravity="end"
+                android:layout_marginTop="20dp"
+                android:layout_marginEnd="7dp"
+                android:background="@drawable/finduser">
+
+            </ImageView>
+
+            <TextView
+                android:id="@+id/UserName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:padding="@dimen/_12sdp"
+                android:text="Search User"
+                android:textColor="@color/black"
+                android:textSize="@dimen/_18sdp"
+                android:textStyle="bold" />
+
+
+        </FrameLayout>
+        <SearchView
+            android:id="@+id/searchView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:queryHint="Search User"
+            android:visibility="gone"
+            android:background="@drawable/custom_login"
+            app:layout_constraintTop_toBottomOf="@id/userframeLayout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <FrameLayout
+            android:id="@+id/frameLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center_vertical"
+            app:layout_constraintTop_toBottomOf="@id/searchView"
+            app:layout_constraintBottom_toBottomOf="parent"
+            >
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/background_container2">
+
+
+
+
+
+                <!-- Progress Bar -->
+
+
+                <!-- Text View for Error Message -->
+                <TextView
+                    android:id="@+id/errorText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text=""
+                    android:textSize="18sp"
+                    android:visibility="gone"
+                    />
+
+
+                <RelativeLayout
+                    xmlns:android="http://schemas.android.com/apk/res/android"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ListView
+                        android:id="@+id/userListView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:divider="@null"
+                        android:dividerHeight="0dp"
+                        android:background="@android:color/transparent">
+
+                    </ListView>
+
+                </RelativeLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="gone"
+                    />
+            </androidx.cardview.widget.CardView>
+
+
+        </FrameLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     <com.etebarian.meowbottomnavigation.MeowBottomNavigation
         android:id="@+id/mewoView"
@@ -291,18 +510,58 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <ImageView
-        android:id="@+id/ToDo"
-        android:layout_width="45dp"
-        android:layout_height="45dp"
-        android:src="@drawable/baseline_playlist_list"
-        android:background="?android:attr/selectableItemBackgroundBorderless"
-        android:layout_margin="@dimen/_18sdp"
-        android:layout_marginTop="@dimen/_50sdp"
-        app:layout_constraintTop_toTopOf="@id/frameLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:contentDescription="To-do Activity"
-        android:onClick="goToToDoActivity"
-    />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

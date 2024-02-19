@@ -166,7 +166,7 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
             }
 
 
-            @Override
+
             public void onForwardClicked() {
                 ChatMessage selectedMessage = chatMessages.get(position); // Assuming you have a variable for the selected message
 
@@ -176,36 +176,12 @@ public class ChatAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> i
                 context.startActivity(forwardIntent);
             }
 
-            @Override
+
             public void onReactClicked() {
-                ChatMessage selectedMessage = chatMessages.get(position); // Assuming you have a variable for the selected message
 
-                // Update the selected message with a reaction
-                String reactionEmoji = "\uD83D\uDC4D"; // You can choose an appropriate emoji
-                selectedMessage.message = reactionEmoji;
-
-                // Notify the adapter that the message data has changed
-                notifyDataSetChanged();
-
-                // Save the updated message to your database (e.g., Firestore)
-                FirebaseFirestore.getInstance().collection(Constants.KEY_CHAT)
-                        .document(selectedMessage.message)
-                        .set(selectedMessage) // Assuming you have a method to update the message in your database
-                        .addOnSuccessListener(new OnSuccessListener<Void>() {
-                            @Override
-                            public void onSuccess(Void unused) {
-                                // Message updated successfully
-                                Toast.makeText(context, "Reaction added", Toast.LENGTH_SHORT).show();
                             }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                // Handle the failure to update the message
-                                Toast.makeText(context, "Failed to add reaction", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-            }
+
+
         });
 
         dialog.show(((AppCompatActivity) context).getSupportFragmentManager(), "MessageOptionsDialog");
